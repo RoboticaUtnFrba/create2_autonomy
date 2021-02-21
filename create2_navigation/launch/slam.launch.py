@@ -36,7 +36,7 @@ nav2_launch_dir = os.path.join(bringup_dir, 'launch')
 nav2_params_file = os.path.join(create2_nav_dir, 'params', 'nav2_params.yaml'),
 
 
-def generate_launch_description(): 
+def generate_launch_description():
 
     # Arguments
 
@@ -70,6 +70,7 @@ def generate_launch_description():
         }.items(),
     )
 
+    # Launch Description
     return LaunchDescription([
         # Arguments
         sim_time_arg,
