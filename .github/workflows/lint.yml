@@ -17,8 +17,18 @@ jobs:
         linter: [copyright, cppcheck, cpplint, flake8, pep257, uncrustify, xmllint]
     steps:
       - uses: actions/checkout@main
-      - uses: ros-tooling/setup-ros@master
-      - uses: ros-tooling/action-ros-lint@master
+      - uses: ros-tooling/setup-ros@0.1.2
+	with:
+          required-ros-distributions: foxy
+      - uses: ros-tooling/action-ros-lint@0.1.1
         with:
           linter: ${{ matrix.linter }}
-          package-name: cpp_template_pkg
+          package-name: |
+	    create2_autonomy
+	    create2_navigation
+	    create2_vision
+      - uses: ros-tooling/action-ros-ci@v0.1.1
+    	with:
+      	  package-name: create2_navigation
+          target-ros2-distro: foxy
+
