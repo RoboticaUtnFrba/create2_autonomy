@@ -21,13 +21,12 @@ from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
-from launch_ros.actions import Node
 
 
 # To save the map use:
-# 
+# -
 # ros2 run nav2_map_server map_saver_cli -f ~/map
-# 
+# -
 
 bringup_dir = get_package_share_directory('nav2_bringup')
 create2_nav_dir = get_package_share_directory('create2_navigation')
@@ -36,14 +35,13 @@ nav2_launch_dir = os.path.join(bringup_dir, 'launch')
 
 nav2_params_file = os.path.join(create2_nav_dir, 'params', 'nav2_params.yaml'),
 
-def generate_launch_description():
-    
+
+def generate_launch_description(): 
 
     # Arguments
 
-
     use_sim_time = LaunchConfiguration(
-        'use_sim_time', 
+        'use_sim_time',
         default='true'
     )
 
@@ -53,9 +51,7 @@ def generate_launch_description():
         description='Use simulation (Gazebo) clock if true',
     )
 
-
     # Nodes
-
 
     nav2_bringup = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([nav2_launch_dir, '/navigation_launch.py']),
