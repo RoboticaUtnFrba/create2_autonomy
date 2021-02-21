@@ -18,17 +18,17 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - uses: ros-tooling/setup-ros@0.1.2
-	with:
+        with:
           required-ros-distributions: foxy
       - uses: ros-tooling/action-ros-lint@0.1.1
         with:
+          distribution: foxy
           linter: ${{ matrix.linter }}
           package-name: |
-	    create2_autonomy
-	    create2_navigation
-	    create2_vision
+            create2_autonomy
+            create2_navigation
+            create2_vision
       - uses: ros-tooling/action-ros-ci@v0.1.1
-    	with:
-      	  package-name: create2_navigation
+        with:
+          package-name: create2_navigation
           target-ros2-distro: foxy
-
