@@ -70,7 +70,6 @@ def generate_launch_description():
         }.items(),
     )
 
-    # Launch Description
     return LaunchDescription([
         # Arguments
         sim_time_arg,

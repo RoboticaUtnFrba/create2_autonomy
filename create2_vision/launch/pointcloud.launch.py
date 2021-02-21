@@ -46,7 +46,6 @@ def generate_launch_description():
         output='both',
     )
 
-
     return LaunchDescription([
         # Nodes
         depth_image_proc,

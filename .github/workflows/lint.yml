@@ -40,7 +40,11 @@ jobs:
       - uses: ros-tooling/setup-ros@0.1.2
         with:
           required-ros-distributions: foxy
-      - uses: ros-tooling/action-ros-ci@0.1.1
-        with:
-          package-name: create2_navigation
-          target-ros2-distro: foxy
+      - run: |
+          colcon build --packages-select create2_navigation
+          colcon test --packages-select create2_navigation --event-handlers console_direct+
+          colcon test-result
+      # - uses: ros-tooling/action-ros-ci@0.1.1
+      #   with:
+      #     package-name: create2_navigation
+      #     target-ros2-distro: foxy
