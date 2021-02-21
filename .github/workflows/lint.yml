@@ -34,6 +34,10 @@ jobs:
     strategy:
       fail-fast: false
     steps:
+      - uses: actions/checkout@main
+      - uses: ros-tooling/setup-ros@0.1.2
+        with:
+          required-ros-distributions: foxy
       - uses: ros-tooling/action-ros-ci@0.1.1
         with:
           package-name: create2_navigation
